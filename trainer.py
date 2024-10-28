@@ -59,7 +59,7 @@ def Trainer (config, model, classifier=None, model_optim=None, classifier_optim=
             valid_loss, valid_acc = evaluate(model, classifier, valid_dl, mode, config, device)
 
         print(f'\nEpoch: {epoch}\n'
-              f'Train Loss: {train_loss:.4f} | Valid Loss: {valid_loss:.4f}\n'
+              f'Train Loss: {train_loss:.4f}     | Valid Loss: {valid_loss:.4f}\n'
               f'Train Accuracy: {train_acc:.4f} | Valid Accuracy: {valid_acc:.7f}')
 
         if early_stopping:
