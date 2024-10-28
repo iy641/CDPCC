@@ -132,8 +132,7 @@ if training_mode == 'linear':
   
     best_model_params, _ = Trainer(configs,
                                   model=model,
-                                  classifier=classifier,
-                                  classifier_optim=classifier_optim,
+                                  model_optim = model_optim,
                                   train_dl=train_loader,
                                   valid_dl=val_loader,
                                   mode='pre_train', early_stopping=True,
@@ -142,13 +141,13 @@ if training_mode == 'linear':
     model.load_state_dict(best_model_params)
 
     _, best_classifer_params = Trainer(configs,
-                                  model=model,
-                                  classifier=classifier,
-                                  classifier_optim=classifier_optim,
-                                  train_dl=train_loader,
-                                  valid_dl=val_loader,
-                                  mode='linear', early_stopping=True,
-                                  device=device)
+                                      model=model,
+                                      classifier=classifier,
+                                      classifier_optim=classifier_optim,
+                                      train_dl=train_loader,
+                                      valid_dl=val_loader,
+                                      mode='linear', early_stopping=True,
+                                      device=device)
 
     classifier.load_state_dict(best_classifier_params)
 
@@ -167,6 +166,7 @@ if training_mode == 'supervised':
   
     best_model_params, best_classifier_params = Trainer(configs,
                                                         model=model,
+                                                        model_optim = model_optim,
                                                         classifier=classifier,
                                                         classifier_optim=classifier_optim,
                                                         train_dl=train_loader,
