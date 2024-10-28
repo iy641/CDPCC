@@ -26,7 +26,7 @@ parser.add_argument('--seed', default= 42, type=int,
                     help='seed value')
 
 parser.add_argument('--training_mode', default='supervised', type=str,
-                    help='Modes of choice: pre_train, linear, supervised, test')
+                    help='Modes of choice: linear, supervised, random_init')
 
 parser.add_argument('--selected_dataset', default='CSTH', type=str,
                     help='Dataset of choice: CSTH, Arc_Loss, FD_A, FD_B')
@@ -101,6 +101,7 @@ classifier = LinearClassifier (configs).to(device)
 
 
 if training_mode == 'random_init': 
+  
     classifier_optim = torch.optim.Adam(classifier.parameters(),
                                         lr=configs.lr,
                                         betas=(configs.beta1, configs.beta2)
@@ -115,6 +116,68 @@ if training_mode == 'random_init':
                                         device=device)
 
     classifier.load_state_dict(best_classifier_params)
+
+
+if training_mode == 'linear': 
+
+    model_optim = torch.optim.Adam(model.parameters(),
+                                        lr=configs.lr,
+                                        betas=(configs.beta1, configs.beta2)
+                                        )
+  
+    classifier_optim = torch.optim.Adam(classifier.parameters(),
+                                        lr=configs.lr,
+                                        betas=(configs.beta1, configs.beta2)
+                                        )
+  
+    best_model_params, _ = Trainer(configs,
+                                  model=model,
+                                  classifier=classifier,
+                                  classifier_optim=classifier_optim,
+                                  train_dl=train_loader,
+                                  valid_dl=val_loader,
+                                  mode='pre_train', early_stopping=True,
+                                  device=device)
+  
+    model.load_state_dict(best_model_params)
+
+    _, best_classifer_params = Trainer(configs,
+                                  model=model,
+                                  classifier=classifier,
+                                  classifier_optim=classifier_optim,
+                                  train_dl=train_loader,
+                                  valid_dl=val_loader,
+                                  mode='linear', early_stopping=True,
+                                  device=device)
+
+    classifier.load_state_dict(best_classifier_params)
+
+
+if training_mode == 'supervised': 
+
+    model_optim = torch.optim.Adam(model.parameters(),
+                                        lr=configs.lr,
+                                        betas=(configs.beta1, configs.beta2)
+                                        )
+  
+    classifier_optim = torch.optim.Adam(classifier.parameters(),
+                                        lr=configs.lr,
+                                        betas=(configs.beta1, configs.beta2)
+                                        )
+  
+    best_model_params, best_classifier_params = Trainer(configs,
+                                                        model=model,
+                                                        classifier=classifier,
+                                                        classifier_optim=classifier_optim,
+                                                        train_dl=train_loader,
+                                                        valid_dl=val_loader,
+                                                        mode='supervised', early_stopping=True,
+                                                        device=device)
+  
+    model.load_state_dict(best_model_params)
+
+    classifier.load_state_dict(best_classifier_params)
+
 
 
 _, _, _, _, _, performance = Trainer(configs, model= model,
