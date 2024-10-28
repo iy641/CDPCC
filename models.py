@@ -273,17 +273,20 @@ class CDPCC_Model (nn.Module):
         pred_future_emb_T = torch.empty((self.timestep, batch_size, h_dim), device=self.device).float()
         pred_future_emb_F = torch.empty((self.timestep, batch_size, h_dim), device=self.device).float()
 
-        for i in range(self.timestep):
-
-            pred_future_emb_F[i] = self.Wk_TtoF[i](c_T)
+        for i in np.arange(0, self.timestep):
+            linear = self.Wk_TtoF[i]
+            pred_future_emb_F[i] = linear(c_T)
+        for i in np.arange(0, self.timestep):
             loss_TtoF = torch.mm(future_embeddings_F[i], pred_future_emb_F[i].transpose(0, 1))
             nce_TtoF += torch.sum(torch.diag(self.lsoftmax(loss_TtoF)))
+        nce_TtoF /= -1. * batch_size * self.timestep
 
-            pred_future_emb_T[i] = self.Wk_FtoT[i](c_F)
+        for i in np.arange(0, self.timestep):
+            linear = self.Wk_FtoT[i]
+            pred_future_emb_T[i] = linear(c_F)
+        for i in np.arange(0, self.timestep):
             loss_FtoT = torch.mm(future_embeddings_T[i], pred_future_emb_T[i].transpose(0, 1))
             nce_FtoT += torch.sum(torch.diag(self.lsoftmax(loss_FtoT)))
-
-        nce_TtoF /= -1. * batch_size * self.timestep
         nce_FtoT /= -1. * batch_size * self.timestep
 
         return h_T, h_F, c_T, c_F, self.projection_head_T(c_T), self.projection_head_F(c_F), nce_TtoF, nce_FtoT
