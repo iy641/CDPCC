@@ -13,7 +13,7 @@ class NTXentLoss(torch.nn.Module):
     use_cosine_similarity: Whether to use cosine similarity or dot product as the similarity metric.
     """
 
-    def __init__(self, device, batch_size, temperature, use_cosine_similarity):
+    def __init__(self, batch_size, temperature, use_cosine_similarity, device):
         """
         Initializes the NT-Xent Loss with given parameters.
         
