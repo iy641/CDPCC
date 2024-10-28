@@ -108,6 +108,8 @@ class NTXentLoss(torch.nn.Module):
         Returns:
         Tensor: Computed NT-Xent loss.
         """
+        zis, zjs = zis.to(self.device), zjs.to(self.device)
+        
         # Concatenate the representations of both views (zis and zjs)
         representations = torch.cat([zjs, zis], dim=0)
 
