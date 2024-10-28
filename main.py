@@ -140,7 +140,7 @@ if training_mode == 'linear':
   
     model.load_state_dict(best_model_params)
 
-    _, best_classifer_params = Trainer(configs,
+    _, best_classifier_params = Trainer(configs,
                                       model=model,
                                       classifier=classifier,
                                       classifier_optim=classifier_optim,
