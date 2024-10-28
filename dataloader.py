@@ -126,10 +126,10 @@ def data_generator(config: object, sourcedata_path: str) -> Tuple[DataLoader, Da
 
     # Create data loaders for each dataset
     train_loader = DataLoader(dataset=train_dataset, batch_size= config.batch_size,
-                              shuffle= T, drop_last=config.drop_last, num_workers=0)
+                              shuffle= True, drop_last= True, num_workers=0)
     val_loader = DataLoader(dataset=val_dataset, batch_size= config.batch_size,
-                            shuffle=False, drop_last=config.drop_last, num_workers= 0)
+                            shuffle=False, drop_last= True, num_workers= 0)
     test_loader = DataLoader(dataset=test_dataset, batch_size= config.batch_size,
-                             shuffle=False, drop_last= False, num_workers= 0)
+                             shuffle=False, drop_last= True, num_workers= 0)
 
     return train_loader, val_loader, test_loader
