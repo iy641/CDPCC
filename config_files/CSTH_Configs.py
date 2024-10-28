@@ -5,11 +5,11 @@ class Config (object):
 
         # data parameters
         self.input_variables = 3
-        self.segment_size = 20
+        self.frame_size = 20
         self.seq_length = 200    # size of raw time series
         self.batch_size = 128
 
-        self.num_segments = 10
+        self.num_frames = 10
 
         # base encoder configs
         self.num_kernels_hidden = 128    #number of 1D kernels in the hidden 1D conv layers
@@ -55,4 +55,4 @@ class Config (object):
         self.beta1 = 0.9
         self.beta2 = 0.99
         self.lr =0.001
-        self.device = device
+        self.device = 'cuda'
