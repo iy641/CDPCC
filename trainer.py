@@ -131,7 +131,7 @@ def linear_train(model, classifier, classifier_optim, dataloader, config, device
     Returns:
         tuple: Training loss and accuracy.
     """
-    losses, accuracies = []
+    losses, accuracies = [], []
     set_requires_grad(model, False)  # Freeze encoder parameters
     classifier.train()
 
@@ -171,7 +171,7 @@ def supervised_train(model, classifier, model_optim, classifier_optim, dataloade
     Returns:
         tuple: Training loss and accuracy.
     """
-    losses, accuracies = []
+    losses, accuracies = [], []
     model.train()
     classifier.train()
 
