@@ -100,7 +100,7 @@ class BaseEncoder_T(nn.Module):
         """
         batch_size, num_variables, num_frames, frame_size = x.size()
         x = x.permute(0, 2, 1, 3)  # Reshape input for frame encoders
-        x = [self.segment_encoder(x[:, i, :, :]) for i in range(num_frames)]
+        x = [self.encoder(x[:, i, :, :]) for i in range(num_frames)]
         x = torch.stack(x, dim=1).flatten(start_dim=2)  # Flatten the frames
         x = self.linear(x)
         return x
@@ -142,7 +142,7 @@ class BaseEncoder_F(nn.Module):
         """
         batch_size, num_variables, num_frames, frame_size = x.size()
         x = x.permute(0, 2, 1, 3)  # Reshape input for segment encoders
-        x = [self.segment_encoder(x[:, i, :, :]) for i in range(num_frames)]
+        x = [self.encoder(x[:, i, :, :]) for i in range(num_frames)]
         x = torch.stack(x, dim=1).flatten(start_dim=2)  # Flatten the frames
         x = self.linear(x)
         return x
