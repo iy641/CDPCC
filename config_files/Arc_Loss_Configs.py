@@ -18,7 +18,6 @@ class Config (object):
         self.conv_dropout = 0.25
         self.conv_padding = 'valid'
         self.embedding_dim = 256
-
         
         # AR configs
         self.context_dim = 32
@@ -27,7 +26,6 @@ class Config (object):
 
         # Model configs
         self.k_past = 7
-
 
         # training configs
         self.num_epoch = 200
@@ -42,4 +40,3 @@ class Config (object):
         self.beta1 = 0.9
         self.beta2 = 0.99
         self.lr = 1e-4
-        self.device = device
