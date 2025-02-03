@@ -40,3 +40,4 @@ class Config (object):
         self.beta1 = 0.9
         self.beta2 = 0.99
         self.lr = 1e-4
+        self.device = 'cuda'
