@@ -165,7 +165,7 @@ class ProjectionHead(nn.Module):
   
     def __init__(self, config):
         """
-        Projection head, g_P, (non-linear prokection layers) used in contrastive learning.
+        Projection head, g_P, (non-linear projection layers) used in contrastive learning.
         We use two non-linear layers to project context vectors into a lower-dimensional space (1/4 the context dimension).
   
         Args:
@@ -232,7 +232,7 @@ class CDPCC_Model(nn.Module):
         self.projection_head_T = ProjectionHead(config)
         self.projection_head_F = ProjectionHead(config)
     
-    def forward (self, x_T x_F):
+    def forward (self, x_T, x_F):
         """
         Forward pass of the CDPCC model.
         
@@ -261,7 +261,7 @@ class CDPCC_Model(nn.Module):
         c_T = self.AR_T(past_embeddings_T)
         c_F = self.AR_F(past_embeddings_F)
 
-        # noise Contrastive Estimation (NCE) loss for cross-domain predictive contrasting module.
+        # noise Contrastive Estimation (NCE) loss for the cross-domain predictive contrasting module.
         #This loss is used in CDPCC to contrast predicted future embeddings using context vectors with actual future embeddings.
         nce_TtoF, nce_FtoT = 0.0, 0.0
         
