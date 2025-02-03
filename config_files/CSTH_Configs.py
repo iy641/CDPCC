@@ -8,7 +8,6 @@ class Config (object):
         self.frame_size = 20
         self.seq_length = 200    # size of raw time series
         self.batch_size = 128
-
         self.num_frames = 10
 
         # base encoder configs
