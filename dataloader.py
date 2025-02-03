@@ -91,7 +91,7 @@ class Load_Dataset(Dataset):
         self.X_frames_T = rearrange(self.X_data, 'N v (p n) -> N v p n', p=self.num_frames, n=self.frame_size)
         
         # Perform frequency transformation on the frames
-        self.X_frames_F = frequency_transform(self.X_frames_T, self.frame_size)
+        self.X_frames_F = frequency_transform(self.X_frames_T)
 
         # Number of samples in the dataset
         self.len = self.X_data.shape[0]
