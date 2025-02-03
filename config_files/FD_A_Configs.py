@@ -42,3 +42,4 @@ class Config (object):
         self.beta2 = 0.99
         self.lr = 1e-4
         self.weight_decay = 3e-4
+        self.device = 'cuda'
