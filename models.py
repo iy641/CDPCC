@@ -207,7 +207,7 @@ class CDPCC_Model(nn.Module):
         super().__init__()
         
         self.k_past = config.k_past
-        self.k_future = config.num_frame - self.k_past
+        self.k_future = config.num_frames - self.k_past
         self.device = config.device
         
         # Linear transformation layers for predictive contrastive learning
