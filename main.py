@@ -26,7 +26,7 @@ def main():
                         help='Run description')
     parser.add_argument('--seed', default=42, type=int,
                         help='Seed value for reproducibility')
-    parser.add_argument('--training_mode', default='pre_train', type=str,
+    parser.add_argument('--training_mode', default='linear', type=str,
                         help='Training mode: linear, supervised, random_init')
     parser.add_argument('--selected_dataset', default='CSTH', type=str,
                         help='Dataset of choice: CSTH, Arc_Loss, FD_A')
