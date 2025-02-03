@@ -8,33 +8,27 @@ class Config (object):
         self.seq_length = 1101
         self.num_classes = 2
         self.batch_size = 128
-        self.segment_size = 111
-
-        self.num_segments = 10
+        self.frame_size = 111
+        self.num_frames = 10
 
         # base encoder configs
-        self.num_kernels_hidden = 128    #number of 1D kernels in the hidden 1D conv layers
+        self.num_kernels = 128    
         self.kernel_size = 3
         self.stride = 1
-        self.hidden_layers = 1
-        self.num_kernels_out = 128   #number of 1D kernels in the output 1D conv layer
+        self.num_conv_layers = 1
         self.conv_dropout = 0.25
         self.conv_padding = 'valid'
-        self.features_length = 256
+        self.embedding_dim = 256
 
-        # Choice of AR model
-        self.AR_model = 'LSTM'
-
-        # LSTM configs
+        
+        # AR configs
         self.context_dim = 32
         self.lstm_layers = 2
         self.lstm_dropout = 0.15
 
         # Model configs
-        self.n_future_timesteps = 3
+        self.k_past = 7
 
-        # Classifier configs
-        self.classifier_input = 'embedding'
 
         # training configs
         self.num_epoch = 200
