@@ -38,9 +38,6 @@ def pad_input (X_data: torch.Tensor, frame_size: int) -> torch.Tensor:
     """
     seq_length = X_data.shape[-1]
     remainder = seq_length % frame_size
-    if remainder == 0:  #if the seq_length is divisible --> do nothing
-        return X_data
-
     padding_size = frame_size - remainder
     pad_left = padding_size // 2
     pad_right = padding_size - pad_left
@@ -82,9 +79,13 @@ class Load_Dataset(Dataset):
 
         self.frame_size = frame_size
 
-        # Pad the sequence to make it divisible by frame size
-        self.X_data = pad_input (self.X_data, frame_size)
-        self.num_frames = (self.seq_length // frame_size) + 1
+        if self.seq_length % self.frame_size == 0:
+            self.num_frames = self.seq_length // frame_size
+
+        else: 
+            # Pad the sequence to make it divisible by frame size
+            self.X_data = pad_input (self.X_data, frame_size)
+            self.num_frames = (self.seq_length // frame_size) + 1
 
         # Split the data into K non-overlapping frames of the same size : (num_samples, num_variables, num_frames, frame_size)
         self.X_frames_T = rearrange(self.X_data, 'N v (p n) -> N v p n', p=self.num_frames, n=self.frame_size)
