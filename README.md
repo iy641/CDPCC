@@ -28,7 +28,7 @@ CDPCC has been implemented using Python = 3.11
 
 We consider three publicly available benchmark datasets: 
 
-- [CSTH](https://zenodo.org/records/10093059) (datasets are available in /datasets/CSTH)
+- [CSTH](https://zenodo.org/records/10093059) (dataset can be found under /datasets/CSTH or [HERE](https://doi.org/10.5683/SP3/8FXNGM)
 - [Arc Loss](https://www.sciencedirect.com/science/article/pii/S0959152423001105) (dataset can be downloaded from [Dataverse](https://doi.org/10.5683/SP3/NREPZM))
 
 
