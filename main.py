@@ -67,11 +67,12 @@ os.makedirs(experiment_log_dir, exist_ok=True)
 # Initialize logging with a unique log file name based on the current date and time.
 log_file_name = os.path.join(experiment_log_dir, f"logs_{datetime.now().strftime('%d_%m_%Y_%H_%M_%S')}.log")
 logger = get_logger(log_file_name)
-logger.debug("=" * 30)
+logger.debug("=" * 60)
 logger.debug(f'Dataset: {dataset}')
 logger.debug(f'Method:  {method}')
 logger.debug(f'Mode:    {training_mode}')
-logger.debug("=" * 30)
+logger.debug (f'Seed:   {SEED}')
+logger.debug("=" * 60)
 
 # Load datasets from the corresponding directory.
 data_path = os.path.join(".", "datasets", dataset)
@@ -173,6 +174,13 @@ _, _, _, _, performance = Trainer(
     mode='test',
     device=device
 )
-logger.debug(f"Test Performance: {performance}")
+
+logger.debug(f"Testing Performance:\n"
+             f"  - Accuracy (%)  = {performance [0] * 100:.4f}\n"
+             f"  - Precision (%) = {performance [1] * 100:.4f}\n"
+             f"  - Recall (%)    = {performance [2] * 100:.4f}\n"
+             f"  - F1 (%)        = {performance [3] * 100:.4f}")
+
+logger.debug("=" * 60)
 
 logger.debug(f"Training time is : {datetime.now()-start_time}")
