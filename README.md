@@ -24,13 +24,13 @@ pip install -r requirements.txt
 
 CDPCC has been implemented using Python = 3.11
 
-## Training
+## Datasets
 
-To train the model(s) in the paper, run this command:
+We consider three publicly available benchmark datasets: 
 
-```train
-python train.py --input-data <path_to_data> --alpha 10 --beta 20
-```
+- [CSTH](https://zenodo.org/records/10093059) (datasets are available in /datasets/CSTH)
+- [Arc Loss] (https://www.sciencedirect.com/science/article/pii/S0959152423001105) (dataset can be downloaded from [Dataverse] (https://doi.org/10.5683/SP3/NREPZM))
+
 
 >📋  Describe how to train the models, with example commands on how to train the models in your paper, including the full training procedure and appropriate hyperparameters.
 
