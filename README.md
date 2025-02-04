@@ -47,7 +47,8 @@ To prepare the datasets, create a subfolder for each dataset inside  ```datasets
 
 ```
 @article{Ibrahim_Yousef
-  title   = {Time Series Representation Learning Via Cross-Domain Predictive and Contextual Contrasting: Application to Fault Detection},
+  title   = {Time Series Representation Learning Via Cross-Domain Predictive and Contextual
+            Contrasting: Application to Fault Detection},
   author  = {Yousef, Ibrahim and Shah, Sirish L. and Gopaluni, R. Bhushan},
   journal = {Engineeing Application of Artificial Intelligence},
   year    = {2025}
