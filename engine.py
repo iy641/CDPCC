@@ -295,6 +295,7 @@ def evaluate(config, model, classifier, dataloader, mode, device):
             else:
                 # For supervised/linear modes, perform a full forward pass.
                 h_T, h_F, _, _, _, _, _, _ = model(X_T, X_F)
+                print (h_T.shape)
                 h_conc = torch.cat((h_T.reshape(config.batch_size, -1),
                                     h_F.reshape(config.batch_size, -1)), dim=1)
 
