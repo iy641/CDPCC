@@ -54,7 +54,7 @@ def Trainer(config, model, classifier=None, model_optim=None, classifier_optim=N
         print('#################### CDPCC Testing Results ####################')
         test_loss, test_acc, test_predictions, test_labels, test_performance = evaluate(
             config, model, classifier, test_dl, mode, device)
-        return test_loss, test_acc, test_logits, test_predictions, test_labels, test_performance
+        return test_loss, test_acc, test_predictions, test_labels, test_performance
 
     # Initialize early stopper if needed.
     if early_stopping:
