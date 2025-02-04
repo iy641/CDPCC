@@ -7,7 +7,7 @@ _by: Ibrahim Yousef, Sirish L. Shah, and R. Bhushan Gopaluni_
 ## Overview
 
 <p align="center">
-<img src="images/CDPCC_Figure.png" width="400" class="center">
+<img src="images/CDPCC_Figure.png" width="800" class="center">
 </p>
 
 
