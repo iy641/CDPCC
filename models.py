@@ -113,8 +113,8 @@ class BaseEncoder_F (nn.Module):
             dropout=config.conv_dropout, padding=config.conv_padding
         )
         
-        frame_size = config.frame_size
-        # Dynamically compute the input size for the linear layer
+        frame_size = config.frame_size// 2 + 1
+        # compute the input size for the linear layer
         dummy_input = torch.randn(1, config.input_variables, frame_size)
         with torch.no_grad():
             in_size = int(self.encoder(dummy_input).shape[-1] * config.num_kernels)
