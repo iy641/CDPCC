@@ -78,7 +78,7 @@ def Trainer(config, model, classifier=None, model_optim=None, classifier_optim=N
 
         # Log epoch details.
         print(f'\nEpoch: {epoch}\n'
-              f'Train Loss: {train_loss:.4f}     | Valid Loss: {valid_loss:.4f}\n'
+              f'Train Loss:     {train_loss:.4f} | Valid Loss:     {valid_loss:.4f}\n'
               f'Train Accuracy: {train_acc:.4f} | Valid Accuracy: {valid_acc:.4f}')
 
         # Check for early stopping.
