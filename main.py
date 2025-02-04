@@ -71,7 +71,7 @@ logger.debug("=" * 60)
 logger.debug(f'Dataset: {dataset}')
 logger.debug(f'Method:  {method}')
 logger.debug(f'Mode:    {training_mode}')
-logger.debug (f'Seed:   {SEED}')
+logger.debug (f'Seed:    {SEED}')
 logger.debug("=" * 60)
 
 # Load datasets from the corresponding directory.
