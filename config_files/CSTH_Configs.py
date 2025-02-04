@@ -21,7 +21,7 @@ class Config (object):
 
         # LSTM configs
         self.context_dim = 64
-        self.lstm_layers = 1
+        self.num_lstm_layers = 1
         self.lstm_dropout = 0.15
 
         # Model configs
