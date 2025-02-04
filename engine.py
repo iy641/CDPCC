@@ -298,6 +298,7 @@ def evaluate(config, model, classifier, dataloader, mode, device):
                 print (h_T.shape)
                 h_conc = torch.cat((h_T.reshape(config.batch_size, -1),
                                     h_F.reshape(config.batch_size, -1)), dim=1)
+                print (h_conc.shape)
 
                 _, y_pred, loss, accuracy = classifier (h_conc, y)
                 losses.append(loss.item())
