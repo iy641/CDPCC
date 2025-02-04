@@ -21,7 +21,7 @@ class Config (object):
         
         # AR configs
         self.context_dim = 32
-        self.lstm_layers = 2
+        self.num_lstm_layers = 2
         self.lstm_dropout = 0.15
 
         # Model configs
