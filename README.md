@@ -22,7 +22,7 @@ To install requirements:
 pip install -r requirements.txt
 ```
 
-CDPCC has been implemented using Python == 3.11.11
+CDPCC has been implemented using Python = 3.11
 
 ## Training
 
