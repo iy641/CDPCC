@@ -30,9 +30,11 @@ We consider three publicly available benchmark datasets:
 
 - [CSTH](https://zenodo.org/records/10093059) (dataset can be found under /datasets/CSTH or [HERE](https://doi.org/10.5683/SP3/8FXNGM)
 - [Arc Loss](https://www.sciencedirect.com/science/article/pii/S0959152423001105) (dataset can be downloaded from [Dataverse](https://doi.org/10.5683/SP3/NREPZM))
+- FD
 
+### Configurations
 
->📋  Describe how to train the models, with example commands on how to train the models in your paper, including the full training procedure and appropriate hyperparameters.
+The hyper-parameters of the CDPCC model used for each dataset can be found in ```config_files/dataset_name_Configs.py```
 
 ## Evaluation
 
