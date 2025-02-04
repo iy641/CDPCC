@@ -40,3 +40,24 @@ The hyper-parameters of the CDPCC model used for each dataset can be found in ``
 
 To prepare the datasets, create a subfolder for each dataset inside  ```datasets/```. Each dataset folder should contain three files: ```train.pt```, ```val.pt```, and ```test.pt```. The data in these files should be stored in a dictionary format. For train.pt, it should contain the training data under the key ```["samples"]``` and the corresponding labels under the key ```["labels"]```. Similarly, ```val.pt``` should contain the validation data and labels, and ```test.pt``` should contain the test data and labels, following the same dictionary structure with ```["samples"]``` for the data and ```["labels"]``` for the labels.
 
+## Running the code
+
+
+## Citation
+
+```
+@article{Ibrahim_Yousef
+  title   = {Time Series Representation Learning Via Cross-Domain Predictive and Contextual Contrasting: Application to Fault Detection},
+  author  = {Yousef, Ibrahim and Shah, Sirish L. and Gopaluni, R. Bhushan},
+  journal = {Engineeing Application of Artificial Intelligence},
+  year    = {2025}
+}
+```
+
+## Contact
+
+Please feel free to ask any questions you might have about the code and/or the work to <iy641@mail.ubc.ca>
+
+## Licence
+
+The CDPCC code is released under the MIT license.
