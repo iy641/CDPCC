@@ -36,37 +36,7 @@ We consider three publicly available benchmark datasets:
 
 The hyper-parameters of the CDPCC model used for each dataset can be found in ```config_files/dataset_name_Configs.py```
 
-## Evaluation
+### Data Preparation
 
-To evaluate my model on ImageNet, run:
+To prepare the datasets, create a subfolder for each dataset inside  ```datasets/```. Each dataset folder should contain three files: ```train.pt```, ```val.pt```, and ```test.pt```. The data in these files should be stored in a dictionary format. For train.pt, it should contain the training data under the key ```["samples"]``` and the corresponding labels under the key ```["labels"]```. Similarly, ```val.pt``` should contain the validation data and labels, and ```test.pt``` should contain the test data and labels, following the same dictionary structure with ```["samples"]``` for the data and ```["labels"]``` for the labels.
 
-```eval
-python eval.py --model-file mymodel.pth --benchmark imagenet
-```
-
->📋  Describe how to evaluate the trained models on benchmarks reported in the paper, give commands that produce the results (section below).
-
-## Pre-trained Models
-
-You can download pretrained models here:
-
-- [My awesome model](https://drive.google.com/mymodel.pth) trained on ImageNet using parameters x,y,z. 
-
->📋  Give a link to where/how the pretrained models can be downloaded and how they were trained (if applicable).  Alternatively you can have an additional column in your results table with a link to the models.
-
-## Results
-
-Our model achieves the following performance on :
-
-### [Image Classification on ImageNet](https://paperswithcode.com/sota/image-classification-on-imagenet)
-
-| Model name         | Top 1 Accuracy  | Top 5 Accuracy |
-| ------------------ |---------------- | -------------- |
-| My awesome model   |     85%         |      95%       |
-
->📋  Include a table of results from your paper, and link back to the leaderboard for clarity and context. If your main result is a figure, include that figure and link to the command or notebook to reproduce it. 
-
-
-## Contributing
-
->📋  Pick a licence and describe how to contribute to your code repository. 
