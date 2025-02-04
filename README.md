@@ -1,17 +1,62 @@
-# Time Series Contrastive Learning via Cross-Domain Predictive and Contextual Contrasting: Application to Fault Detection
+>📋  A template README.md for code accompanying a Machine Learning paper
 
-#### Authors: Ibrahim Yousef, Sirish L. Shah, and R. Bhushan Gopaluni
+# My Paper Title
 
-#### CDPCC Paper: [Link]
+This repository is the official implementation of [My Paper Title](https://arxiv.org/abs/2030.12345). 
 
-## Overview 
+>📋  Optional: include a graphic explaining your approach/main result, bibtex entry, link to demos, blog posts and tutorials
 
-This repository provides the code and datasets for the proposed CDPCC model, along with baseline models, as presented in the manuscript *"Time Series Contrastive Learning via Cross-Domain Predictive and Contextual Contrasting: Application to Fault Detection"*.
+## Requirements
 
-We introduce Cross-Domain Predictive and Contextual Contrasting (CDPCC), a novel contrastive learning framework that integrates temporal and spectral information to capture rich time-frequency features from time series data. CDPCC consists of two key components: **i)** cross-domain predictive contrasting, which predicts future embeddings across time and frequency domains, and **ii)** cross-domain contextual contrasting, which aligns time- and frequency-based representations in a shared latent space.
+To install requirements:
 
-<p align="center">
-    <img src="images/CDPCC_Figure.png" width="1000" align="center">
-</p>
+```setup
+pip install -r requirements.txt
+```
 
-Our CDPCC model has six components: time- and frequency-domain encoders ($g_E^T$ and $g_E^F$), autoregressive models ($g_{AR}^T$ and $g_{AR}^F$), and non-linear projection heads ($g_P^T$ and $g_P^F$). First, the input time series $x$ is split into $K$ non-overlapping frames $\mathbf{s^T}$, each transformed into its spectral view $\mathbf{s^F}$ via FFT. In the cross-domain predictive contrasting module, time-based and frequency-based representations are produced $\mathbf{h^T}$, $\mathbf{h^F}$ = $g_E^T(\mathbf{s^T})$, $g_E^F$ $(s^F)$. The autoregressive models summarize the dynamics of the first $k_{\text{past}}$ frames (here, $k_{\text{past}} = 3$) to generate context vectors, which are then used to predict future embeddings in the other domain. The cross-domain contextual contrasting module further aligns these context vectors to learn discriminative feature representations. 
+>📋  Describe how to set up the environment, e.g. pip/conda/docker commands, download datasets, etc...
+
+## Training
+
+To train the model(s) in the paper, run this command:
+
+```train
+python train.py --input-data <path_to_data> --alpha 10 --beta 20
+```
+
+>📋  Describe how to train the models, with example commands on how to train the models in your paper, including the full training procedure and appropriate hyperparameters.
+
+## Evaluation
+
+To evaluate my model on ImageNet, run:
+
+```eval
+python eval.py --model-file mymodel.pth --benchmark imagenet
+```
+
+>📋  Describe how to evaluate the trained models on benchmarks reported in the paper, give commands that produce the results (section below).
+
+## Pre-trained Models
+
+You can download pretrained models here:
+
+- [My awesome model](https://drive.google.com/mymodel.pth) trained on ImageNet using parameters x,y,z. 
+
+>📋  Give a link to where/how the pretrained models can be downloaded and how they were trained (if applicable).  Alternatively you can have an additional column in your results table with a link to the models.
+
+## Results
+
+Our model achieves the following performance on :
+
+### [Image Classification on ImageNet](https://paperswithcode.com/sota/image-classification-on-imagenet)
+
+| Model name         | Top 1 Accuracy  | Top 5 Accuracy |
+| ------------------ |---------------- | -------------- |
+| My awesome model   |     85%         |      95%       |
+
+>📋  Include a table of results from your paper, and link back to the leaderboard for clarity and context. If your main result is a figure, include that figure and link to the command or notebook to reproduce it. 
+
+
+## Contributing
+
+>📋  Pick a licence and describe how to contribute to your code repository. 
