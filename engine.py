@@ -294,10 +294,11 @@ def evaluate(config, model, classifier, dataloader, mode, device):
                 losses.append(loss.item())
             else:
                 # For supervised/linear modes, perform a full forward pass.
+                batch_size = X_T.shape[0]
                 h_T, h_F, _, _, _, _, _, _ = model(X_T, X_F)
                 print (h_T.shape)
-                h_conc = torch.cat((h_T.reshape(config.batch_size, -1),
-                                    h_F.reshape(config.batch_size, -1)), dim=1)
+                h_conc = torch.cat((h_T.reshape(batch_size, -1),
+                                    h_F.reshape(batch_size, -1)), dim=1)
                 print (h_conc.shape)
 
                 _, y_pred, loss, accuracy = classifier (h_conc, y)
