@@ -176,10 +176,10 @@ _, _, _, _, performance = Trainer(
 )
 
 logger.debug(f"Testing Performance:\n"
-             f"  - Accuracy (%)  = {performance [0] * 100:.4f}\n"
-             f"  - Precision (%) = {performance [1] * 100:.4f}\n"
-             f"  - Recall (%)    = {performance [2] * 100:.4f}\n"
-             f"  - F1 (%)        = {performance [3] * 100:.4f}")
+             f"  - Accuracy (%)  = {performance [0] :.4f}\n"
+             f"  - Precision (%) = {performance [1] :.4f}\n"
+             f"  - Recall (%)    = {performance [2] :.4f}\n"
+             f"  - F1 (%)        = {performance [3] :.4f}")
 
 logger.debug("=" * 60)
 
