@@ -22,7 +22,7 @@ To install requirements:
 pip install -r requirements.txt
 ```
 
->📋  Describe how to set up the environment, e.g. pip/conda/docker commands, download datasets, etc...
+CDPCC has been implemented using Python == 3.11.11
 
 ## Training
 
