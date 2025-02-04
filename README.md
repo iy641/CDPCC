@@ -42,6 +42,27 @@ To prepare the datasets, create a subfolder for each dataset inside  ```datasets
 
 ## Running the code
 
+This project provides several training modes, which can be selected via command-line arguments. You can choose from the following training modes:
+
+- **Random Initialization** (`random_init`): Only the classifier is trained, while the CDPCC model (encoder) remains with random weights.
+- **Linear** (`linear`): Pre-train the CDPCC model using contrastive loss and then train the classifier on top of the frozen model.
+- **Supervised** (`supervised`): Jointly train both the CDPCC model (encoder) and the classifier.
+
+In addition, you can set the experiment description, run description, and seed value for reproducibility.
+
+To run the code with the desired settings, use the following command:
+
+```python main.py --experiment_description exp1 --run_description run_1 --seed 123 --training_mode random_init --selected_dataset CSTH```
+
+Where:
+- `experiment_description` is a name for your experiment (e.g., `exp1`).
+- `run_description` is a name for a specific run (e.g., `run_1`).
+- `seed` sets the random seed value for reproducibility.
+- `training_mode` specifies the training mode (choose from `random_init`, `linear`, or `supervised`).
+- `selected_dataset` refers to the dataset you want to use.
+
+Make sure the dataset folder is located in the `data` directory and the dataset name matches exactly what is specified in the `--selected_dataset` argument (e.g., `CSTH` for the `CSTH` dataset).
+
 
 ## Citation
 
