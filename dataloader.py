@@ -19,7 +19,11 @@ def frequency_transform(X_frames_T: torch.Tensor) -> torch.Tensor:
     """
     frame_size = X_frames_T.shape[-1]
     n_freq_components = frame_size // 2 + 1
-    
+
+    # Hamming windowing to avoid spectral leackage
+    hamming_window = torch.hamming_window(frame_size, dtype=X_frames_T.dtype, device=X_frames_T.device)
+    X_frames_T = X_frames_T * hamming_window  # Element-wise multiplication
+
     # Perform FFT on each time-domain frame to get the corresponding frequency-domain frame. 
     X_frames_F = fft.fft(X_frames_T, dim=3)[:, :, :, :n_freq_components].abs()
     return X_frames_F
