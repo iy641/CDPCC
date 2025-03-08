@@ -20,7 +20,7 @@ def frequency_transform(X_frames_T: torch.Tensor) -> torch.Tensor:
     frame_size = X_frames_T.shape[-1]
     n_freq_components = frame_size // 2 + 1
 
-    # Hamming windowing to avoid spectral leackage
+    # Hamming windowing to avoid spectral leakage
     hamming_window = torch.hamming_window(frame_size, dtype=X_frames_T.dtype, device=X_frames_T.device)
     X_frames_T = X_frames_T * hamming_window  # Element-wise multiplication
 
